@@ -1,11 +1,11 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Abhishek Anand | Software Engineering Lead</title>
     
-
+    <!-- Dialogflow Messenger Resources -->
     <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
     <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
 
@@ -52,7 +52,6 @@
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.1);
       }
-
       /* Dialogflow Messenger Customization for Dark Theme */
       df-messenger {
         z-index: 50;
@@ -84,7 +83,6 @@
         --df-messenger-input-placeholder-font-color: #64748b; /* Slate 500 */
         --df-messenger-send-icon-color: #0f172a;
       }
-
       /* Flyer / Highlight Tooltip Animation */
       .chat-flyer {
         position: fixed;
@@ -104,13 +102,11 @@
         animation-fill-mode: forwards;
         animation-delay: 2s; /* Wait for page load */
       }
-      
       .chat-flyer-text {
         display: flex;
         align-items: center;
         gap: 6px;
       }
-
       @keyframes float {
         0% { transform: translateY(10px); opacity: 0; }
         10%, 100% { opacity: 1; }
@@ -136,7 +132,7 @@
   <body class="bg-primary text-slate-300 antialiased selection:bg-accent selection:text-white">
     <div id="root"></div>
 
-
+    <!-- Chat Widget -->
     <df-messenger
       project-id="poc-projects-abhi"
       agent-id="c849a2ed-bdfb-42a6-a2e3-ccea1ef43bdc"
@@ -147,7 +143,7 @@
       </df-messenger-chat-bubble>
     </df-messenger>
 
-
+    <!-- Highlight Flyer -->
     <div class="chat-flyer">
       <div class="chat-flyer-text">
         <span>Chat with my AI Agent!</span>
@@ -155,9 +151,8 @@
       </div>
     </div>
 
-    <script type="module" src="/index.tsx"></script>
     
-
+    <!-- Script to auto-open chat -->
     <script>
       window.addEventListener('dfMessengerLoaded', function (event) {
         const dfMessengerChatBubble = document.querySelector('df-messenger-chat-bubble');
@@ -172,57 +167,6 @@
                messenger.expand();
              }
            }
-        }
-      });
-    </script>
-  </body>
-</html> -->
-
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Abhishek Anand | Software Engineering Lead</title>
-
-    <!-- Dialogflow Messenger -->
-    <link
-      rel="stylesheet"
-      href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css"
-    />
-    <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
-
-    <!-- Tailwind CDN (OK for now) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-      body {
-        font-family: 'Inter', sans-serif;
-      }
-      /* your existing styles stay unchanged */
-    </style>
-  </head>
-
-  <body class="bg-primary text-slate-300 antialiased">
-    <div id="root"></div>
-
-    <!-- Dialogflow Widget -->
-    <df-messenger
-      project-id="poc-projects-abhi"
-      agent-id="c849a2ed-bdfb-42a6-a2e3-ccea1ef43bdc"
-      language-code="en"
-      max-query-length="-1">
-      <df-messenger-chat-bubble chat-title="AI Assistant"></df-messenger-chat-bubble>
-    </df-messenger>
-
-    <!-- IMPORTANT: only ONE entry point -->
-
-    <script>
-      window.addEventListener('dfMessengerLoaded', function () {
-        const messenger = document.querySelector('df-messenger');
-        if (messenger && typeof messenger.expand === 'function') {
-          messenger.expand();
         }
       });
     </script>
